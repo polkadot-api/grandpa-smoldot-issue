@@ -1,0 +1,25 @@
+{
+  "name": "grandpa-smoldot-issue",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "postinstall": "papi"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "^3.6.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@polkadot-api/descriptors": "file:.papi/descriptors",
+    "polkadot-api": "^1.15.0",
+    "rxjs": "^7.8.2"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": false,
+    "trailingComma": "all"
+  }
+}
