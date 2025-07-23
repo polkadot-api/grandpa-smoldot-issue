@@ -21,3 +21,10 @@ npx --yes @zombienet/cli@1.3.133 --provider native --dir ./logs spawn zombienet.
 ```
 bun run src/index.ts
 ```
+
+### Logs
+The logs will be stored in 2 different files:
+- SMOLDOT-LOGS.txt (the most important one: these are all the logs from smoldot)
+- JSON-RPC-LOGS.txt (these logs contain all the JSON-RPC messages that have been sent between smoldot <-> PAPI)
+
+You can change the name and/or the path of the logs by altering the `src/config.ts` file.
