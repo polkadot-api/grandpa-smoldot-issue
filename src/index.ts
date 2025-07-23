@@ -1,4 +1,4 @@
-import { map, mergeMap, pairwise, skip } from "rxjs"
+import { map, mergeMap, pairwise } from "rxjs"
 import type { BlockInfo, HexString } from "polkadot-api"
 import { localWnd } from "@polkadot-api/descriptors"
 import { client } from "./client"
@@ -30,16 +30,9 @@ client.finalizedBlock$
 
 client.blocks$
   .pipe(
-    skip(10),
     mergeMap(async (block) => {
-      try {
-        if (await hasNewAuthoritySet(block.hash))
-          console.log(`\nNEW AUTH SET AT: ${block.number} - ${block.hash}\n`)
-      } catch {
-        console.error(
-          `COULD NOT CHECK NEW AUTH SET AT: ${block.number} - ${block.hash}`,
-        )
-      }
+      if (await hasNewAuthoritySet(block.hash))
+        console.log(`\nNEW AUTH SET AT: ${block.number} - ${block.hash}\n`)
     }),
   )
   .subscribe()
